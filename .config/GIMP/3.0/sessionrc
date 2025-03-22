@@ -11,18 +11,16 @@
     (size 640 480))
 (session-info "toplevel"
     (factory-entry "gimp-single-image-window")
-    (position 16 16)
+    (position 0 0)
     (size 1888 1011)
-    (monitor 1)
+    (monitor 0)
     (open-on-exit)
     (aux-info
-        (left-docks-width "66")
-        (right-docks-width "443")
+        (left-docks-width "180")
+        (right-docks-width "333")
         (maximized "no"))
     (gimp-toolbox
-        (side left))
-    (gimp-dock
-        (side right)
+        (side left)
         (book
             (current-page 0)
             (dockable "gimp-tool-options"
@@ -30,36 +28,67 @@
                 (tab-style icon)
                 (aux-info
                     (show-button-bar "true")))
-            (dockable "gimp-font-list"
+            (dockable "gimp-device-status"
+                (locked)
                 (tab-style icon)
                 (aux-info
                     (show-button-bar "true")))
+            (dockable "gimp-undo-history"
+                (locked)
+                (tab-style icon)
+                (aux-info
+                    (show-button-bar "true")))
+            (dockable "gimp-image-list"
+                (locked)
+                (tab-style preview)
+                (aux-info
+                    (show-button-bar "true")))))
+    (gimp-dock
+        (side right)
+        (book
+            (current-page 0)
             (dockable "gimp-brush-grid"
+                (locked)
                 (tab-style preview)
                 (aux-info
                     (show-button-bar "true")))
             (dockable "gimp-pattern-grid"
+                (locked)
                 (tab-style preview)
                 (aux-info
                     (show-button-bar "true")))
             (dockable "gimp-gradient-list"
+                (locked)
+                (tab-style preview)
+                (aux-info
+                    (show-button-bar "true")))
+            (dockable "gimp-font-list"
+                (locked)
+                (tab-style icon)
+                (aux-info
+                    (show-button-bar "true")))
+            (dockable "gimp-document-list"
+                (locked)
                 (tab-style preview)
                 (aux-info
                     (show-button-bar "true"))))
         (book
             (position 741)
-            (current-page 0)
+            (current-page 2)
             (dockable "gimp-layer-list"
+                (locked)
                 (tab-style icon)
                 (preview-size 32)
                 (aux-info
                     (show-button-bar "true")))
             (dockable "gimp-channel-list"
+                (locked)
                 (tab-style icon)
                 (preview-size 32)
                 (aux-info
                     (show-button-bar "true")))
             (dockable "gimp-vectors-list"
+                (locked)
                 (tab-style icon)
                 (preview-size 32)
                 (aux-info
@@ -96,8 +125,7 @@
     (size 1688 1197))
 (session-info "toplevel"
     (factory-entry "gimp-brightness-contrast-tool-dialog")
-    (position 91 439)
-    (monitor 1))
+    (position 91 439))
 
 (hide-docks no)
 (single-window-mode yes)
