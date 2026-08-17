@@ -1,0 +1,43 @@
+name: Security checks
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  repository-scan:
+    name: Malware and unsafe-content scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Install scanners
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes clamav shellcheck
+
+      - name: Update malware signatures
+        run: |
+          sudo systemctl stop clamav-freshclam.service || true
+          sudo freshclam
+
+      - name: Scan repository for malware
+        run: clamscan --recursive --infected --no-summary --exclude-dir='^./\.git$' .
+
+      - name: Check shell scripts
+        run: |
+          mapfile -d '' scripts < <(find . -type f -name '*.sh' -not -path './.git/*' -print0)
+          if ((${#scripts[@]})); then
+            shellcheck --severity=warning "${scripts[@]}"
+          fi
+
+      - name: Detect prompt-injection and dangerous automation patterns
+        run: python3 scripts/security_scan.py

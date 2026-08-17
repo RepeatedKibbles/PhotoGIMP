@@ -336,6 +336,17 @@ Want to add your language? Fork the repo, create a `docs/README_xx.md` file, and
 
 ---
 
+## 💙 Support the project
+
+PhotoGIMP is maintained by people who contribute their time to keep the project available, documented, and compatible with current GIMP releases. You can support its continued development through its main contributors:
+
+- **Dionatan Simioni (Diolinux)** — creator of PhotoGIMP and the Diolinux community. Follow the [Diolinux YouTube channel](https://youtube.com/Diolinux) and visit the [Diolinux blog](https://diolinux.com.br/).
+- **[Gabriel Almir](https://github.com/gabrielalmir)** — project maintainer since 2021. You can support his maintenance work on [Ko-fi](https://ko-fi.com/gabrielalmir).
+
+Code contributions, issue reports, translations, and documentation improvements are also valuable ways to help PhotoGIMP continue.
+
+---
+
 ## 👥 Contributors
 
 <a align="center" href="https://github.com/Diolinux/PhotoGIMP/graphs/contributors">

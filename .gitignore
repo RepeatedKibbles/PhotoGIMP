@@ -8,6 +8,45 @@
 # VSCode Files
 .vscode/*
 
+# Devcontainer setups
+.devcontainer
+
+# Binary and packaged artifacts
+# Keep source assets (for example PNG/SVG icons and splash screens) versioned,
+# but do not commit executables, compiled libraries, installers, or archives.
+*.exe
+*.dll
+*.so
+*.so.*
+*.dylib
+*.bin
+*.msi
+*.dmg
+*.pkg
+*.deb
+*.rpm
+*.AppImage
+*.app
+*.jar
+*.class
+*.wasm
+*.pyc
+*.pyo
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.tgz
+*.tar.bz2
+*.tbz2
+*.tar.xz
+*.txz
+
+# Generated release output
+dist/
+__pycache__/
+
 # General
 .DS_Store
 .AppleDouble

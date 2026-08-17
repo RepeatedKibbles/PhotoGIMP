@@ -1,0 +1,140 @@
+name: Build, scan and publish release
+
+on:
+  push:
+    tags:
+      - '[0-9]*.[0-9]*'
+      - '[0-9]*.[0-9]*.[0-9]*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out tagged source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Build deterministic platform archives
+        run: python3 scripts/package_release.py
+
+      - name: Verify archive contents
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, BadZipFile
+
+          expected = {
+              'PhotoGIMP-linux.zip': 'PhotoGIMP-linux/.config/GIMP/',
+              'PhotoGIMP-windows.zip': None,
+              'PhotoGIMP-macos.zip': None,
+          }
+          for name, prefix in expected.items():
+              path = Path('dist') / name
+              with ZipFile(path) as archive:
+                  names = archive.namelist()
+                  assert names and all(not item.startswith('/') and '..' not in Path(item).parts for item in names)
+                  if prefix is None:
+                      roots = {Path(item).parts[0] for item in names}
+                      assert len(roots) == 1
+                  else:
+                      assert any(item.startswith(prefix) for item in names)
+                  assert archive.testzip() is None
+          PY
+          (cd dist && sha256sum --check SHA256SUMS.txt)
+
+      - name: Scan archives with ClamAV
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes clamav
+          sudo systemctl stop clamav-freshclam.service || true
+          sudo freshclam
+          clamscan --infected --no-summary dist/*.zip
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: release-artifacts
+          path: dist/
+          if-no-files-found: error
+          retention-days: 7
+
+  virustotal:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out scanner
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: release-artifacts
+          path: dist
+
+      - name: Require VirusTotal configuration
+        env:
+          VIRUSTOTAL_API_KEY: ${{ secrets.VIRUSTOTAL_API_KEY }}
+        run: test -n "$VIRUSTOTAL_API_KEY" || { echo 'Repository secret VIRUSTOTAL_API_KEY is required.' >&2; exit 1; }
+
+      - name: Scan every platform archive with VirusTotal
+        env:
+          VIRUSTOTAL_API_KEY: ${{ secrets.VIRUSTOTAL_API_KEY }}
+        run: |
+          python3 scripts/virustotal_scan.py \
+            dist/PhotoGIMP-linux.zip \
+            dist/PhotoGIMP-windows.zip \
+            dist/PhotoGIMP-macos.zip \
+            --report dist/VIRUSTOTAL.md
+
+      - name: Preserve VirusTotal report
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: virustotal-report
+          path: dist/VIRUSTOTAL.md
+          if-no-files-found: error
+
+  publish:
+    needs: [build, virustotal]
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: release-artifacts
+          path: dist
+
+      - name: Download VirusTotal report
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: virustotal-report
+          path: dist
+
+      - name: Publish release only after successful scans
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --verify-tag \
+            --generate-notes \
+            --title "PhotoGIMP $TAG" \
+            dist/PhotoGIMP-linux.zip \
+            dist/PhotoGIMP-windows.zip \
+            dist/PhotoGIMP-macos.zip \
+            dist/SHA256SUMS.txt \
+            'dist/VIRUSTOTAL.md#VirusTotal scan report'
