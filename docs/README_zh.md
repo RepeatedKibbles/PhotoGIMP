@@ -71,7 +71,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 1. 确保已[从 Flathub](https://flathub.org/apps/org.gimp.GIMP) 安装 GIMP。
 2. **先打开一次 GIMP，然后关闭**——这将创建 PhotoGIMP 所需的配置文件夹。
 3. 下载最新 release：
-   👉 **[下载 PhotoGIMP for Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip)**
+   👉 **[下载 PhotoGIMP for Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP-linux.zip)**
 4. 将 `.zip` 文件解压**到你的主目录**（`~`）中。
    - 这会将文件放入 `~/.config` 和 `~/.local`，这些是隐藏文件夹。
    - 要在文件管理器中查看隐藏文件夹，请按 <kbd>Ctrl</kbd> + <kbd>H</kbd>。
@@ -103,7 +103,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 1. 确保已[从官方站点](https://www.gimp.org/downloads/)安装 GIMP。
 2. **先打开一次 GIMP，然后关闭**——这将创建 PhotoGIMP 所需的配置文件夹。
 3. 下载最新 release：
-   👉 **[下载 PhotoGIMP for Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
+   👉 **[下载 PhotoGIMP for Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. 将 `PhotoGIMP.zip` 的内容解压到任意文件夹（例如桌面）。
 5. 打开解压后的文件夹，**复制其中的 `3.0` 文件夹**。
 6. 按下 <kbd>Windows</kbd> + <kbd>R</kbd> 打开运行对话框。
@@ -115,7 +115,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 <details>
 <summary><strong>💡 可选：更改 GIMP 快捷方式图标</strong></summary>
 
-你也可以下载 [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico)，然后更新以下路径中 GIMP 快捷方式的图标：
+你也可以下载 [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/photogimp.ico)，然后更新以下路径中 GIMP 快捷方式的图标：
 
 ```
 %appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0
@@ -155,7 +155,7 @@ choco install photogimp
 1. 确保已[从官方站点](https://www.gimp.org/downloads/)安装 GIMP。
 2. **先打开一次 GIMP，然后关闭**——这将创建 PhotoGIMP 所需的配置文件夹。
 3. 下载最新 release：
-   👉 **[下载 PhotoGIMP for macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
+   👉 **[下载 PhotoGIMP for macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. 将 `PhotoGIMP.zip` 的内容解压到任意文件夹（例如桌面）。
 5. 打开解压后的文件夹，**复制其中的 `3.0` 文件夹**。
 6. 打开 Finder，按下 <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> 打开"前往文件夹"。

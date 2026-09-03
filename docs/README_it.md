@@ -71,7 +71,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 1. Assicurati di avere già GIMP installato [da Flathub](https://flathub.org/apps/org.gimp.GIMP).
 2. **Apri GIMP una volta e poi chiudilo**: questo crea le cartelle di configurazione necessarie a PhotoGIMP.
 3. Scarica l'ultima release:
-   👉 **[Scarica PhotoGIMP per Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip)**
+   👉 **[Scarica PhotoGIMP per Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP-linux.zip)**
 4. Estrai il file `.zip` **nella tua cartella home** (`~`).
     - In questo modo i file verranno copiati in `~/.config` e `~/.local`, che sono cartelle nascoste.
     - Per vedere le cartelle nascoste nel file manager, premi <kbd>Ctrl</kbd> + <kbd>H</kbd>.
@@ -104,7 +104,7 @@ Se vuoi mantenere le impostazioni attuali di GIMP, esegui prima un backup:
 1. Assicurati di avere [GIMP installato dal sito ufficiale](https://www.gimp.org/downloads/).
 2. **Apri GIMP una volta e poi chiudilo**: questo crea le cartelle di configurazione necessarie a PhotoGIMP.
 3. Scarica l'ultima release:
-   👉 **[Scarica PhotoGIMP per Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
+   👉 **[Scarica PhotoGIMP per Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. Estrai il contenuto di `PhotoGIMP.zip` in una cartella qualsiasi (per esempio il Desktop).
 5. Apri la cartella estratta e **copia la cartella `3.0`**.
 6. Premi <kbd>Windows</kbd> + <kbd>R</kbd> per aprire la finestra Esegui.
@@ -116,7 +116,7 @@ Se vuoi mantenere le impostazioni attuali di GIMP, esegui prima un backup:
 <details>
 <summary><strong>💡 Opzionale: cambia l'icona del collegamento di GIMP</strong></summary>
 
-Puoi anche scaricare [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico) e aggiornare l'icona del collegamento di GIMP che si trova in:
+Puoi anche scaricare [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/photogimp.ico) e aggiornare l'icona del collegamento di GIMP che si trova in:
 
 ```
 %appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0
@@ -158,7 +158,7 @@ Se vuoi mantenere le impostazioni attuali di GIMP, esegui prima un backup:
 1. Assicurati di avere [GIMP installato dal sito ufficiale](https://www.gimp.org/downloads/).
 2. **Apri GIMP una volta e poi chiudilo**: questo crea le cartelle di configurazione necessarie a PhotoGIMP.
 3. Scarica l'ultima release:
-   👉 **[Scarica PhotoGIMP per macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
+   👉 **[Scarica PhotoGIMP per macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. Estrai il contenuto di `PhotoGIMP.zip` in una cartella qualsiasi (per esempio il Desktop).
 5. Apri la cartella estratta e **copia la cartella `3.0`**.
 6. Apri Finder, premi <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> per aprire "Vai alla cartella".

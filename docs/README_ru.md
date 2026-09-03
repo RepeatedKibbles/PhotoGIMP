@@ -71,7 +71,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 1. Убедитесь, что у вас уже установлен GIMP [из Flathub](https://flathub.org/apps/org.gimp.GIMP).
 2. **Откройте GIMP один раз, а затем закройте его** — это создаст папки конфигурации, необходимые для PhotoGIMP.
 3. Скачайте последнюю версию:
-   👉 **[Скачать PhotoGIMP для Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP-linux.zip)**
+   👉 **[Скачать PhotoGIMP для Linux (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP-linux.zip)**
 4. Распакуйте `.zip` файл **в свою домашнюю папку** (`~`).
     - Это позволит поместить файлы в папки `~/.config` и `~/.local`, которые являются скрытыми папками.
     - Чтобы просмотреть скрытые папки в файловом менеджере, нажмите <kbd>Ctrl</kbd> + <kbd>H</kbd>.
@@ -104,7 +104,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 1. Убедитесь, что у вас [установлен GIMP с официального сайта](https://www.gimp.org/downloads/).
 2. **Откройте GIMP один раз, а затем закройте его** — это создаст папки конфигурации, необходимые для PhotoGIMP.
 3. Скачайте последнюю версию:
-   👉 **[Скачать PhotoGIMP для Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
+   👉 **[Скачать PhotoGIMP для Windows (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. Распакуйте содержимое `PhotoGIMP.zip` в любую папку (например, на рабочий стол).
 5. Откройте извлеченную папку и **скопируйте содержимое `3.0` папки**.
 6. Нажмите <kbd>Windows</kbd> + <kbd>R</kbd>, чтобы открыть диалоговое окно "Выполнить".
@@ -116,7 +116,7 @@ cp -r ~/.config/GIMP/3.0 ~/GIMP-3.0-backup
 <details>
 <summary><strong>💡 (Необязательно): Измените значок ярлыка GIMP</strong></summary>
 
-Вы также можете скачать [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/photogimp.ico) и обновить значок в ярлыке GIMP, расположенном по адресу:
+Вы также можете скачать [photogimp.ico](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/photogimp.ico) и обновить значок в ярлыке GIMP, расположенном по адресу:
 
 ```
 %appdata%\Microsoft\Windows\Start Menu\Programs\GIMP 3.0.0
@@ -158,7 +158,7 @@ choco install photogimp
 1. Убедитесь, что у вас [установлен GIMP с официального сайта](https://www.gimp.org/downloads/).
 2. **Откройте GIMP один раз, а затем закройте его** — это создаст папки конфигурации, необходимые для PhotoGIMP.
 3. Скачайте последнюю версию:
-   👉 **[Скачать PhotoGIMP для macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/download/3.0/PhotoGIMP.zip)**
+   👉 **[Скачать PhotoGIMP для macOS (.zip)](https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP.zip)**
 4. Распакуйте содержимое `PhotoGIMP.zip` в любую папку (например, на рабочий стол).
 5. Откройте извлеченную папку и **скопируйте содержимое `3.0` папки**.
 6. Откройте Finder, нажмите <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> чтобы открыть «Переход к папке».
